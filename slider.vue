@@ -16,17 +16,15 @@
 
 <script>
 // import Swiper JS
+// add or remove unused modules
 import { Swiper, Navigation, Pagination, Autoplay } from 'swiper'
 import 'swiper/swiper-bundle.min.css'
 
 export default {
-  data() {
-    return {}
-  },
-
   mounted() {
     // configure Swiper to use modules. The modules were tested with SwiperJS v6.8.4 with NuxtJS v2.15.7
     // previously it was before export default. Moved here for performance issues. Move back in case of problems.
+    // add or remove unused modules
     Swiper.use([Navigation, Pagination, Autoplay])
     
     // init Swiper:
@@ -36,18 +34,20 @@ export default {
       // @see https://swiperjs.com/swiper-api#parameters
       direction: 'horizontal',
       loop: true,
+      // remove unused modules if needed
       modules: [Navigation, Pagination, Autoplay],
 
-      // If we need pagination
+      // Pagination if needed
       pagination: {
         el: '.swiper-pagination',
         type: 'bullets',
         clickable: true
       },
+      // Autoplay if needed
       autoplay: {
         delay: 3000
       },
-      // Navigation arrows
+      // Navigation arrows if needed
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev'
