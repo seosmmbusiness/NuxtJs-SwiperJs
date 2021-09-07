@@ -18,8 +18,6 @@
 // import Swiper JS
 import { Swiper, Navigation, Pagination, Autoplay } from 'swiper'
 import 'swiper/swiper-bundle.min.css'
-// configure Swiper to use modules. The modules were tested with SwiperJS v6.8.4 with NuxtJS v2.15.7
-Swiper.use([Navigation, Pagination, Autoplay])
 
 export default {
   data() {
@@ -27,6 +25,10 @@ export default {
   },
 
   mounted() {
+    // configure Swiper to use modules. The modules were tested with SwiperJS v6.8.4 with NuxtJS v2.15.7
+    // previously it was before export default. Moved here for performance issues. Move back in case of problems.
+    Swiper.use([Navigation, Pagination, Autoplay])
+    
     // init Swiper:
     /* eslint-disable no-unused-vars */
     const swiper = new Swiper('.swiper', {
